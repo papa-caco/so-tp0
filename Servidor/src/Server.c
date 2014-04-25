@@ -100,6 +100,8 @@ int main(){
 	char package[PACKAGESIZE];
 	int status = 1;		// Estructura que manjea el status de los recieve.
 
+	printf("Cliente conectado. Esperando mensajes:\n");
+
 	while (status != 0){
 		status = recv(socketCliente, (void*) package, PACKAGESIZE, 0);
 		if (status != 0) printf("%s", package);
