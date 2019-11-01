@@ -57,11 +57,11 @@ int main(void) {
 }
 
 t_log* iniciar_logger() {
-	return log_create("tp0.log", "TP0", 1, LOG_LEVEL_INFO);
+	return log_create("log/tp0.log", "TP0", 1, LOG_LEVEL_INFO);
 }
 
 t_config* leer_config() {
-	return config_create("tp0.config");
+	return config_create("config/tp0.config");
 }
 
 void leer_consola(t_log* logger) {
