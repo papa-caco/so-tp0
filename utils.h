@@ -40,16 +40,28 @@ typedef struct
 
 pthread_t thread;
 
-void* recibir_buffer(int*, int);
+//void*	recibir_buffer		(int*, int);
 
-void iniciar_servidor(void);
-void esperar_cliente(int);
-void* recibir_mensaje(int socket_cliente, int* size);
-int recibir_operacion(int);
-void process_request(int cod_op, int cliente_fd);
-void serve_client(int *socket);
-void* serializar_paquete(t_paquete* paquete, int bytes);
-void devolver_mensaje(void* payload, int size, int socket_cliente);
+void 	iniciar_servidor	(void);
+
+void 	serve_client		(int *socket);
+
+void 	process_request		(int cod_op, int cliente_fd);
+
+void* 	recibir_mensaje		(int socket_cliente, int* size);
+
+void* 	serializar_paquete	(t_paquete* paquete, int bytes);
+
+void 	devolver_mensaje	(void* payload, int size, int socket_cliente);
+/* hace un send
+
+int 	recibir_operacion	(int);
+
+void 	esperar_cliente		(int);
+
+
+
+
 
 
 #endif /* CONEXIONES_H_ */

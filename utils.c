@@ -11,12 +11,12 @@ void iniciar_servidor(void)
 {
 	int socket_servidor;
 
-    struct addrinfo hints, *servinfo, *p;
+    struct addrinfo hints, *servinfo, *p; 	//hints no es puntero
 
     memset(&hints, 0, sizeof(hints));
-    hints.ai_family = AF_UNSPEC;
-    hints.ai_socktype = SOCK_STREAM;
-    hints.ai_flags = AI_PASSIVE;
+    hints.ai_family = AF_UNSPEC;			// No importa si uso IPv4 o IPv6 - vale 0
+    hints.ai_socktype = SOCK_STREAM;		// Indica que usaremos el protocolo TCP
+    hints.ai_flags = AI_PASSIVE;			// Asigna el address del localhost: 127.0.0.1
 
     getaddrinfo(IP, PUERTO, &hints, &servinfo);
 
@@ -32,7 +32,7 @@ void iniciar_servidor(void)
         break;
     }
 
-	listen(socket_servidor, SOMAXCONN);
+	listen(socket_servidor, SOMAXCONN);		// Maximum queue length specifiable by listen = 128 (default)
 
     freeaddrinfo(servinfo);
 
