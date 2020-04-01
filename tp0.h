@@ -1,8 +1,12 @@
 /*
- * Cliente.h
  *
- *  Created on: 28 feb. 2019
- *      Author: utnso
+ *		tp0.h
+ *
+ *  	Created on: 1 apr. 2020
+ *
+ *      Author:  papa-caco
+ *
+ *
  */
 
 #ifndef TP0_H_
@@ -19,8 +23,8 @@
 
 t_log* 		iniciar_logger		(void);
 
-t_config* 	leer_config			(void);
+t_config*	leer_config			(void);
 
-void 		terminar_programa	(int, t_log*, t_config*);
+void 		terminar_programa	(int socket_cliente, t_log* logger, t_config* config);
 
 #endif /* TP0_H_ */

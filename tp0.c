@@ -1,41 +1,48 @@
 /*
- * main.c
  *
- *  Created on: 28 feb. 2019
- *      Author: utnso
+ *		tp0.c
+ *
+ *  	Created on: 1 apr. 2020
+ *
+ *      Author:  papa-caco
+ *
+ *
  */
 
 #include "tp0.h"
 
 int main(void)
 {
-	/*---------------------------------------------------PARTE 2-------------------------------------------------------------*/
-	int conexion;
-	char* ip;
-	char* puerto;
-
-	t_log* logger;
-	t_config* config;
-
-	logger = iniciar_logger();
+	/*----------------------------------PARTE 2--------------------------------------*/
+	t_log* logger 		= iniciar_logger();
 
 	log_info(logger, "soy un log");	//Loggear "soy un log"
 
-	config = leer_config();
-	ip = config_get_string_value(config,"IP");
-	puerto = config_get_string_value(config,"PUERTO");
-	/*---------------------------------------------------PARTE 3-------------------------------------------------------------*/
+	t_config* config	= leer_config();
 
+	char* ip			= config_get_string_value(config,"IP");
+
+	char* puerto		= config_get_string_value(config,"PUERTO");
+
+	char* mensaje 		= config_get_string_value(config,"VALOR_MSG");
+
+	/*--------------------------PARTE 3--------------------------------------------*/
 	//antes de continuar, tenemos que asegurarnos que el servidor esté corriendo
 	//porque lo necesitaremos para lo que sigue.
 
-	//crear conexion
+	int conexion 		= crear_conexion(ip, puerto); 			// obtengo el socket_cliente
 
-	//enviar mensaje
+	enviar_mensaje(mensaje, conexion);				// enviar mensaje
 
-	//recibir mensaje
+	free(mensaje);
+	free(puerto);
+	free(ip);
 
-	//loguear mensaje recibido
+	char* return_msg = recibir_mensaje(conexion);	// recibir mensaje
+
+	log_info(logger, return_msg);					//loguear mensaje recibido
+
+	free(return_msg);
 
 	terminar_programa(conexion, logger, config);
 }
@@ -60,5 +67,5 @@ void terminar_programa(int conexion, t_log* logger, t_config* config)
 	mencionadas en el enunciado */
 	log_destroy(logger);
 	config_destroy(config);
-	close(conexion);
+	liberar_conexion(conexion);
 }

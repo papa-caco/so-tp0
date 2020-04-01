@@ -1,8 +1,11 @@
 /*
- * conexiones.h
+ *		utils.h
  *
- *  Created on: 2 mar. 2019
- *      Author: utnso
+ *  	Created on: 1 apr. 2020
+ *
+ *      Author:  papa-caco
+ *
+ *
  */
 
 #ifndef UTILS_H_
@@ -36,6 +39,8 @@ typedef struct
 int 	crear_conexion		(char* ip, char* puerto);
 
 void 	enviar_mensaje		(char* mensaje, int socket_cliente);
+
+void* 	serializar_paquete	(t_paquete* paquete, int *bytes);
 
 char* 	recibir_mensaje		(int socket_cliente);
 
