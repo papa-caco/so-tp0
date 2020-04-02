@@ -40,9 +40,9 @@ typedef struct
 
 pthread_t thread;
 
-// void*	recibir_buffer	(int*, int);
+//void*	recibir_buffer		(int*, int);
 
-// int 	recibir_operacion	(int socket);
+//int 	recibir_operacion	(int socket);
 
 void 	iniciar_servidor	(void);
 
@@ -57,6 +57,8 @@ void* 	serializar_paquete	(t_paquete* paquete, int bytes);
 void 	devolver_mensaje	(void* payload, int size, int socket_cliente);	// hace un send
 
 void 	esperar_cliente		(int socket);
+
+t_log* 	iniciar_logger		(void);
 
 
 

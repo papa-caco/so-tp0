@@ -11,7 +11,9 @@ void iniciar_servidor(void)
 {
 	int socket_servidor;
 
-    struct addrinfo hints, *servinfo, *p; 	//hints no es puntero
+	t_log* logger = iniciar_logger();
+
+	struct addrinfo hints, *servinfo, *p; 	//hints no es puntero
 
     memset(&hints, 0, sizeof(hints));
     hints.ai_family = AF_UNSPEC;			// No importa si uso IPv4 o IPv6 - vale 0
@@ -19,6 +21,9 @@ void iniciar_servidor(void)
     hints.ai_flags = AI_PASSIVE;			// Asigna el address del localhost: 127.0.0.1
 
     getaddrinfo(IP, PUERTO, &hints, &servinfo);
+
+    log_info(logger, "Direccion: %s, Port: %s",IP ,PUERTO);
+    log_destroy(logger);
 
     for (p=servinfo; p != NULL; p = p->ai_next)
     {
@@ -79,12 +84,14 @@ void process_request(int cod_op, int cliente_fd) {
 
 void* recibir_mensaje(int socket_cliente, int* size)
 {
+	t_log* logger = iniciar_logger();
 	void * buffer;
 
 	recv(socket_cliente, size, sizeof(int), MSG_WAITALL);
 	buffer = malloc(*size);
 	recv(socket_cliente, buffer, *size, MSG_WAITALL);
-
+	log_info(logger, "Recibi del cliente Socket: %d el mensaje: %s", socket_cliente, buffer);
+	log_destroy(logger);
 	return buffer;
 }
 
@@ -123,5 +130,10 @@ void devolver_mensaje(void* payload, int size, int socket_cliente)
 	free(paquete->buffer->stream);
 	free(paquete->buffer);
 	free(paquete);
+}
+
+t_log* iniciar_logger(void)
+{
+	return log_create("log/serverlog", "SERVER", 1, LOG_LEVEL_INFO);
 }
 
