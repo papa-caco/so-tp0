@@ -30,17 +30,19 @@ int main(void)
 	//antes de continuar, tenemos que asegurarnos que el servidor esté corriendo
 	//porque lo necesitaremos para lo que sigue.
 
-	int conexion 		= crear_conexion(ip, puerto); 			// obtengo el socket_cliente
+	int conexion 		= crear_conexion(ip, puerto); 	// obtengo el socket_cliente
 
-	enviar_mensaje(mensaje, conexion);				// enviar mensaje
+	log_info(logger, "se envia al cliente Socket: %d el mensaje: %s", conexion, mensaje);
+
+	enviar_mensaje(mensaje, conexion);					// enviar mensaje
 
 	free(mensaje);
 	free(puerto);
 	free(ip);
 
-	char* return_msg = recibir_mensaje(conexion);	// recibir mensaje
+	char* return_msg = recibir_mensaje(conexion);			// recibir mensaje que devuelve el servidor
 
-	log_info(logger, return_msg);					//loguear mensaje recibido
+	log_info(logger, "El servidor devuelve el mensaje: %s", return_msg);	//loguear mensaje recibido
 
 	free(return_msg);
 

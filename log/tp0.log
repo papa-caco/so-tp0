@@ -11,3 +11,140 @@
 [INFO] 04:00:35:415 TP0/(23541:23541): soy un log
 [INFO] 04:00:40:209 TP0/(23544:23544): soy un log
 [INFO] 04:03:20:600 TP0/(26058:26058): soy un log
+[INFO] 17:34:40:4 TP0/(10506:10506): soy un log
+[INFO] 18:24:03:662 TP0/(12444:12444): soy un log
+[INFO] 21:54:17:186 TP0/(17835:17835): soy un log
+[INFO] 22:00:42:908 TP0/(18100:18100): soy un log
+[INFO] 22:09:46:482 TP0/(18368:18368): soy un log
+[INFO] 22:16:34:337 TP0/(18560:18560): soy un log
+[INFO] 22:17:16:185 TP0/(18591:18591): soy un log
+[INFO] 22:17:16:185 TP0/(18591:18591): se envia al cliente Socket: 4 el siguiente mensaje: msg01
+[INFO] 22:25:54:29 TP0/(18931:18931): soy un log
+[INFO] 22:25:54:30 TP0/(18931:18931): se envia al cliente Socket: 4 el mensaje: msg01
+[INFO] 00:07:07:443 TP0/(3063:3063): soy un log
+[INFO] 00:10:24:330 TP0/(3063:3063): se envia al cliente Socket: 4 el mensaje: msg01
+[INFO] 00:24:36:460 TP0/(3663:3663): soy un log
+[INFO] 00:24:42:762 TP0/(3663:3663): se envia al cliente Socket: 4 el mensaje: msg01
+[INFO] 00:56:22:848 TP0/(5322:5322): soy un log
+[INFO] 00:56:22:848 TP0/(5322:5322): se envia al cliente Socket: 4 el mensaje: msg01
+[INFO] 01:03:48:99 TP0/(5756:5756): soy un log
+[INFO] 01:03:48:99 TP0/(5756:5756): se envia al cliente Socket: 4 el mensaje: msg01
+[INFO] 01:04:41:913 TP0/(5792:5792): soy un log
+[INFO] 01:05:10:547 TP0/(5792:5792): se envia al cliente Socket: 4 el mensaje: msg01
+[INFO] 01:15:06:251 TP0/(6358:6358): soy un log
+[INFO] 01:15:06:252 TP0/(6358:6358): se envia al cliente Socket: 4 el mensaje: msg01
+[INFO] 01:16:13:650 TP0/(6408:6408): soy un log
+[INFO] 01:16:25:135 TP0/(6408:6408): se envia al cliente Socket: 4 el mensaje: msg01
+[INFO] 01:38:03:362 TP0/(7682:7682): soy un log
+[INFO] 01:38:10:50 TP0/(7682:7682): se envia al cliente Socket: 4 el mensaje: msg01
+[INFO] 01:56:49:126 TP0/(8551:8551): soy un log
+[INFO] 01:56:49:126 TP0/(8551:8551): se envia al cliente Socket: 4 el mensaje: msg01
+[INFO] 01:56:49:127 TP0/(8551:8551): *‡	0.0.1
+[INFO] 01:57:28:959 TP0/(8563:8563): soy un log
+[INFO] 01:57:28:960 TP0/(8563:8563): se envia al cliente Socket: 4 el mensaje: msg01
+[INFO] 01:57:28:961 TP0/(8563:8563): úK	0.0.1
+[INFO] 01:57:36:288 TP0/(8565:8565): soy un log
+[INFO] 01:57:36:289 TP0/(8565:8565): se envia al cliente Socket: 4 el mensaje: msg01
+[INFO] 01:57:36:289 TP0/(8565:8565): :C0.0.1
+[INFO] 01:58:28:389 TP0/(8623:8623): soy un log
+[INFO] 01:58:28:389 TP0/(8623:8623): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 01:58:28:390 TP0/(8623:8623): º
+0.0.1
+[INFO] 01:58:32:895 TP0/(8625:8625): soy un log
+[INFO] 01:58:32:896 TP0/(8625:8625): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 01:58:32:896 TP0/(8625:8625): 
+	0.0.1
+[INFO] 01:58:35:34 TP0/(8627:8627): soy un log
+[INFO] 01:58:35:35 TP0/(8627:8627): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 01:58:35:35 TP0/(8627:8627): êŽ0.0.1
+[INFO] 01:58:42:99 TP0/(8629:8629): soy un log
+[INFO] 01:58:42:100 TP0/(8629:8629): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 01:58:42:100 TP0/(8629:8629): ª8	0.0.1
+[INFO] 01:58:44:499 TP0/(8631:8631): soy un log
+[INFO] 01:58:44:499 TP0/(8631:8631): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 01:58:44:499 TP0/(8631:8631): *	0.0.1
+[INFO] 01:59:49:446 TP0/(8674:8674): soy un log
+[INFO] 01:59:49:447 TP0/(8674:8674): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 01:59:49:448 TP0/(8674:8674): º¸	0.0.1
+[INFO] 01:59:50:470 TP0/(8676:8676): soy un log
+[INFO] 01:59:50:470 TP0/(8676:8676): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 01:59:50:471 TP0/(8676:8676): êÁ0.0.1
+[INFO] 01:59:51:374 TP0/(8678:8678): soy un log
+[INFO] 01:59:51:375 TP0/(8678:8678): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 01:59:51:375 TP0/(8678:8678): Šÿ0.0.1
+[INFO] 01:59:52:206 TP0/(8680:8680): soy un log
+[INFO] 01:59:52:207 TP0/(8680:8680): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 01:59:52:207 TP0/(8680:8680): z¾0.0.1
+[INFO] 01:59:53:86 TP0/(8682:8682): soy un log
+[INFO] 01:59:53:87 TP0/(8682:8682): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 01:59:53:88 TP0/(8682:8682): 
+0.0.1
+[INFO] 01:59:54:7 TP0/(8684:8684): soy un log
+[INFO] 01:59:54:7 TP0/(8684:8684): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 01:59:54:8 TP0/(8684:8684): :€	0.0.1
+[INFO] 01:59:54:921 TP0/(8686:8686): soy un log
+[INFO] 01:59:54:922 TP0/(8686:8686): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 01:59:54:923 TP0/(8686:8686): ªù	0.0.1
+[INFO] 01:59:55:762 TP0/(8688:8688): soy un log
+[INFO] 01:59:55:763 TP0/(8688:8688): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 01:59:55:763 TP0/(8688:8688): zº	0.0.1
+[INFO] 01:59:56:681 TP0/(8690:8690): soy un log
+[INFO] 01:59:56:682 TP0/(8690:8690): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 01:59:56:682 TP0/(8690:8690): úy	0.0.1
+[INFO] 01:59:58:201 TP0/(8692:8692): soy un log
+[INFO] 01:59:58:202 TP0/(8692:8692): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 01:59:58:202 TP0/(8692:8692): ð	0.0.1
+[INFO] 01:59:59:322 TP0/(8694:8694): soy un log
+[INFO] 01:59:59:322 TP0/(8694:8694): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 01:59:59:323 TP0/(8694:8694): šy0.0.1
+[INFO] 02:02:33:673 TP0/(8813:8813): soy un log
+[INFO] 02:02:33:674 TP0/(8813:8813): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 02:02:33:674 TP0/(8813:8813): šA0.0.1
+[INFO] 02:02:50:781 TP0/(8818:8818): soy un log
+[INFO] 02:02:50:781 TP0/(8818:8818): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 02:02:50:782 TP0/(8818:8818): :»	0.0.1
+[INFO] 02:02:52:743 TP0/(8820:8820): soy un log
+[INFO] 02:02:52:743 TP0/(8820:8820): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 02:02:52:744 TP0/(8820:8820): ZI	0.0.1
+[INFO] 02:02:53:986 TP0/(8822:8822): soy un log
+[INFO] 02:02:53:986 TP0/(8822:8822): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 02:02:53:987 TP0/(8822:8822): ª0.0.1
+[INFO] 02:03:38:556 TP0/(8845:8845): soy un log
+[INFO] 02:03:38:556 TP0/(8845:8845): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 02:03:38:557 TP0/(8845:8845): êB	0.0.1
+[INFO] 02:03:39:926 TP0/(8847:8847): soy un log
+[INFO] 02:03:39:927 TP0/(8847:8847): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 02:03:39:927 TP0/(8847:8847): úä0.0.1
+[INFO] 02:03:40:826 TP0/(8854:8854): soy un log
+[INFO] 02:03:40:826 TP0/(8854:8854): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 02:03:40:827 TP0/(8854:8854): Z<	0.0.1
+[INFO] 02:03:41:679 TP0/(8856:8856): soy un log
+[INFO] 02:03:41:679 TP0/(8856:8856): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 02:03:41:680 TP0/(8856:8856): 
+Ã	0.0.1
+[INFO] 02:03:43:131 TP0/(8858:8858): soy un log
+[INFO] 02:03:43:131 TP0/(8858:8858): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 02:03:43:132 TP0/(8858:8858): j“0.0.1
+[INFO] 02:03:46:218 TP0/(8860:8860): soy un log
+[INFO] 02:03:46:219 TP0/(8860:8860): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 02:03:46:220 TP0/(8860:8860): Ê[	0.0.1
+[INFO] 02:03:47:484 TP0/(8862:8862): soy un log
+[INFO] 02:03:47:485 TP0/(8862:8862): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 02:03:47:485 TP0/(8862:8862): z0.0.1
+[INFO] 02:03:50:574 TP0/(8871:8871): soy un log
+[INFO] 02:03:50:574 TP0/(8871:8871): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 02:03:50:575 TP0/(8871:8871): ¥0.0.1
+[INFO] 02:10:36:26 TP0/(9184:9184): soy un log
+[INFO] 02:10:36:26 TP0/(9184:9184): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 02:10:36:26 TP0/(9184:9184): 
+»	0.0.1
+[INFO] 02:10:49:942 TP0/(9198:9198): soy un log
+[INFO] 02:10:49:943 TP0/(9198:9198): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 02:10:49:944 TP0/(9198:9198): :z	0.0.1
+[INFO] 02:10:50:898 TP0/(9200:9200): soy un log
+[INFO] 02:10:50:899 TP0/(9200:9200): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 02:10:50:899 TP0/(9200:9200): 
+b	0.0.1
+[INFO] 02:13:46:445 TP0/(9333:9333): soy un log
+[INFO] 02:13:46:445 TP0/(9333:9333): se envia al cliente Socket: 4 el mensaje: AA
+[INFO] 02:13:46:446 TP0/(9333:9333): El servidor devuelve el mensaje: *ï	0.0.1

@@ -44,6 +44,8 @@ void* 	serializar_paquete	(t_paquete* paquete, int *bytes);
 
 char* 	recibir_mensaje		(int socket_cliente);
 
+void* 	recibir_buffer		(int* size, int socket_cliente);
+
 void 	eliminar_paquete	(t_paquete* paquete);
 
 void 	liberar_conexion	(int socket_cliente);

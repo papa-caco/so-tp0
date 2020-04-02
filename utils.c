@@ -35,26 +35,25 @@ int crear_conexion(char *ip, char* puerto)
 //TODOlisto
 void enviar_mensaje(char* mensaje, int socket_cliente)
 {
-	t_buffer* 	_buffer = malloc(sizeof(t_buffer));
-	void* 		_stream;
-	t_paquete* 	paquete;
-	void* 		a_enviar;
-	int 		bytes;
+	t_paquete* 	paquete = malloc(sizeof(t_paquete));
 
-	_buffer -> size = sizeof(int) + strlen(mensaje);
-	_stream = malloc(_buffer -> size);
-	memcpy(_stream, &mensaje,sizeof(strlen (mensaje)));		//por ahora no sumamos caracter centinela
-	_buffer -> stream = _stream;
-
-	paquete =  malloc(sizeof(paquete));
 	paquete -> codigo_operacion = MENSAJE;
-	paquete -> buffer = _buffer;
 
-	bytes = _buffer -> size + sizeof(int) * 2;
+	paquete -> buffer = malloc(sizeof(t_buffer));
+	paquete -> buffer -> size = strlen(mensaje) + 1;
 
-	// tamaño del mensaje en bytes (= _buffer -> size) + el tamaño de 2 int: code_op + buffer->size
+	// el valor de size es  la cantidad de bytes del mensaje sin el char centinela
 
-	a_enviar = serializar_paquete(paquete, &bytes);
+	paquete -> buffer -> stream = malloc(paquete -> buffer -> size);
+
+	memcpy(paquete -> buffer -> stream , mensaje, paquete -> buffer -> size);
+
+	int bytes = paquete -> buffer -> size + 2 * sizeof(int) ;
+
+	// el valor de bytes es tamaño del mensaje en bytes (= _buffer -> size)
+	// + el tamaño de 2 int: code_op + buffer->size
+
+	void* a_enviar = serializar_paquete(paquete, &bytes);
 
 	send(socket_cliente, a_enviar, bytes, 0 );
 
@@ -69,10 +68,8 @@ void enviar_mensaje(char* mensaje, int socket_cliente)
  */
 void* serializar_paquete(t_paquete* paquete, int *bytes)
 {
-	int a_enviar_size;
-	memcpy(&(a_enviar_size), bytes, sizeof(int));
 
-	void * a_enviar = malloc(a_enviar_size);
+	void * a_enviar = malloc(*bytes);
  	int offset = 0;
 
 	memcpy(a_enviar + offset , &(paquete->codigo_operacion), sizeof(int));
@@ -80,6 +77,7 @@ void* serializar_paquete(t_paquete* paquete, int *bytes)
 	memcpy(a_enviar + offset, &(paquete->buffer->size), sizeof(int));
 	offset+= sizeof(int);
 	memcpy(a_enviar + offset, paquete->buffer->stream, paquete->buffer->size);
+	offset += paquete->buffer->size;
 
 	return a_enviar;
 }
@@ -87,12 +85,31 @@ void* serializar_paquete(t_paquete* paquete, int *bytes)
 // tODOlisto
 char* recibir_mensaje(int socket_cliente)
 {
+	int size;
+	char* buffer = recibir_buffer(&size, socket_cliente);
+		return buffer;
+}
+
+void* recibir_buffer(int* size, int socket_cliente)
+{
+	void * buffer;
+
+	recv(socket_cliente, size, sizeof(int), MSG_WAITALL);
+	buffer = malloc(*size);
+	recv(socket_cliente, buffer, *size, MSG_WAITALL);
+
+	return buffer;
+}
+
+/*
+char* recibir_mensaje(int socket_cliente)
+{
 	t_paquete* paquete = malloc(sizeof(paquete));
 
 	recv(socket_cliente, &(paquete -> codigo_operacion), sizeof(int), MSG_WAITALL);
 	recv(socket_cliente, &(paquete -> buffer -> size), sizeof(int), MSG_WAITALL);
-	recv(socket_cliente, &(paquete -> buffer -> stream), paquete -> buffer -> size, MSG_WAITALL);
-	char* mensaje = malloc(sizeof(paquete -> buffer -> stream));
+	recv(socket_cliente, paquete -> buffer -> stream, paquete -> buffer -> size, MSG_WAITALL);
+	char* mensaje = malloc(paquete -> buffer -> size);
 
 	if (paquete -> codigo_operacion == MENSAJE) {
 		memcpy(&(mensaje),paquete -> buffer -> stream, paquete -> buffer -> size);
@@ -101,6 +118,9 @@ char* recibir_mensaje(int socket_cliente)
 	}
 	return mensaje;
 }
+*/
+
+
 
 void eliminar_paquete(t_paquete* paquete)
 {

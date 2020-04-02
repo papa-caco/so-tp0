@@ -1,9 +1,5 @@
 # Carpetas Debug de los proyectos
-FUSE/Debug
-libMUSE/Debug
-MUSE/Debug
-SACFSInit/Debug
-hilolay-example/bin
+tp0
 
 # Archivos de log
 *.log
