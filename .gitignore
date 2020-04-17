@@ -1,18 +1,24 @@
-# Ejecutables
-Server
-
-# Archivos de log
-*.log
-
 # Prerequisites
 *.d
 
+# Settings
+gameboy/.settings*
+gameboy/.cproject
+gameboy/bin/gameboy
+gameboy/bin/log/gameboy.log
+gameboy/debug/*.o
+testServer/.settings*
+testServer/.cproject
+testServer/bin/testServer
+testServer/bin/log/*.log
+testServer/debug/*.o
+
 # Object files
 *.o
-*.d
 *.ko
 *.obj
 *.elf
+
 
 # Linker output
 *.ilk
@@ -57,4 +63,3 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
-

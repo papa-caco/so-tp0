@@ -11,7 +11,7 @@ void iniciar_servidor(void)
 {
 	int socket_servidor;
 
-	t_log* logger = iniciar_logger();
+	iniciar_logger();
 
 	struct addrinfo hints, *servinfo, *p; 	//hints no es puntero
 
@@ -22,8 +22,8 @@ void iniciar_servidor(void)
 
     getaddrinfo(IP, PUERTO, &hints, &servinfo);
 
-    log_info(logger, "Direccion: %s, Port: %s",IP ,PUERTO);
-    log_destroy(logger);
+    log_info(g_logger, "Direccion: %s, Port: %s",IP ,PUERTO);
+    log_destroy(g_logger);
 
     for (p=servinfo; p != NULL; p = p->ai_next)
     {
@@ -49,7 +49,7 @@ void esperar_cliente(int socket_servidor)
 {
 	struct sockaddr_in dir_cliente;
 
-	int tam_direccion = sizeof(struct sockaddr_in);
+	socklen_t tam_direccion = sizeof(struct sockaddr_in);
 
 	int socket_cliente = accept(socket_servidor, (void*) &dir_cliente, &tam_direccion);
 
@@ -69,30 +69,90 @@ void serve_client(int* socket)
 void process_request(int cod_op, int cliente_fd) {
 	int size;
 	void* msg;
+	iniciar_logger();
 		switch (cod_op) {
 		case MENSAJE:
 			msg = recibir_mensaje(cliente_fd, &size);
 			devolver_mensaje(msg, size, cliente_fd);
 			free(msg);
 			break;
+		case CATCH_BROKER:
+			log_info(g_logger, "(NEW-MESSAGE: BROKER@CATCH_POKEMON | Socket#: %d", cliente_fd);
+			msg = rcv_catch_broker(cliente_fd, &size);
+			devolver_mensaje(msg, size, cliente_fd);  // Tiene que devolver un Id Mensaje (un int)
+			free(msg);
+			break;
+		case CATCH_GAMECARD:
+			log_info(g_logger, "(NEW-MESSAGE @GAMECARD | CATCH_POKEMON | Socket_Cliente: %d", cliente_fd);
+			//TODO
+			break;
+		case CAUGHT_BROKER:
+			log_info(g_logger, "(NEW-MESSAGE @");
+			//TODO
+			break;
+		case GET_BROKER:
+			log_info(g_logger, "(NEW-MESSAGE @");
+			//TODO
+			break;
+		case GET_GAMECARD:
+			log_info(g_logger, "(NEW-MESSAGE @");
+			//TODO
+			break;
+		case NEW_BROKER:
+			log_info(g_logger, "(NEW-MESSAGE @");
+			//TODO
+			break;
+		case NEW_GAMECARD:
+			log_info(g_logger, "(NEW-MESSAGE @");
+			//TODO
+			break;
+		case APPEARED_BROKER:
+			log_info(g_logger, "(NEW-MESSAGE @");
+			//TODO
+			break;
+		case APPEARED_TEAM:
+			log_info(g_logger, "(NEW-MESSAGE @");
+			//TODO
+			break;
 		case 0:
 			pthread_exit(NULL);
 		case -1:
 			pthread_exit(NULL);
 		}
+	log_destroy(g_logger);
 }
 
 void* recibir_mensaje(int socket_cliente, int* size)
 {
-	t_log* logger = iniciar_logger();
+	iniciar_logger();
 	void * buffer;
 
 	recv(socket_cliente, size, sizeof(int), MSG_WAITALL);
 	buffer = malloc(*size);
 	recv(socket_cliente, buffer, *size, MSG_WAITALL);
-	log_info(logger, "Recibi del cliente Socket: %d el mensaje: %s", socket_cliente, buffer);
-	log_destroy(logger);
+	log_info(g_logger, "Recibi del cliente Socket: %d el mensaje: %s", socket_cliente, buffer);
+	log_destroy(g_logger);
 	return buffer;
+}
+
+void* rcv_catch_broker(int socket_cliente, int *size)
+{
+	void *msg;
+
+	recv(socket_cliente, size, sizeof(int), MSG_WAITALL);
+	msg = malloc(*size);
+	recv(socket_cliente, msg, *size, MSG_WAITALL);
+
+	int offset = 0;
+	int *pos_x = msg + offset;
+	offset += sizeof(int);
+	int *pos_y = msg + offset;
+	offset += sizeof(int);
+	char *pokemon = msg + offset;
+
+	log_info(g_logger, "(MSG-BODY= %s | %d | %d -- SIZE = %d Bytes)", pokemon,*pos_x,*pos_y,*size);
+
+	return msg;
 }
 
 void* serializar_paquete(t_paquete* paquete, int bytes)
@@ -115,7 +175,7 @@ void devolver_mensaje(void* payload, int size, int socket_cliente)
 	t_paquete* paquete = malloc(sizeof(t_paquete));
 
 	paquete->codigo_operacion = MENSAJE;
-	paquete->buffer = malloc(sizeof(t_buffer));
+	paquete->buffer = malloc(sizeof(t_stream));
 	paquete->buffer->size = size;
 	paquete->buffer->stream = malloc(paquete->buffer->size);
 	memcpy(paquete->buffer->stream, payload, paquete->buffer->size);
@@ -132,8 +192,8 @@ void devolver_mensaje(void* payload, int size, int socket_cliente)
 	free(paquete);
 }
 
-t_log* iniciar_logger(void)
+void iniciar_logger(void)
 {
-	return log_create("log/serverlog", "SERVER", 1, LOG_LEVEL_INFO);
+	g_logger = log_create("log/serverlog", "SERVER", 1, LOG_LEVEL_INFO);
 }
 
